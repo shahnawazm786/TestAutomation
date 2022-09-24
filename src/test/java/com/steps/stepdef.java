@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -40,6 +41,30 @@ public class stepdef {
 		assertEquals("Passed","This is a sample page", actual);
 	}
 
-
+/*
+ *  ******************************* Student Form
+ */
+	@Given("user enter the url for practice form")
+	public void user_enter_the_url_for_practice_form() {
+		System.out.println("enter the form");
+	}
+	@And("verify the textbox visibility")
+	public void erify_the_textbox_visibility() {
+		
+	}
+	@When("enter the data into first name")
+	public void enter_data_into_first_time() {
+		
+	}
+	@And("enter the data into mobile text box")
+	public void enter_the_data_into_mobile_text_box() {
+		
+	}
+	@Then("enter the subject")
+	public void enter_the_subject() {
+		
+	}
+	
+	
 
 }
