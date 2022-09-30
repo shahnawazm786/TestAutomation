@@ -108,6 +108,7 @@ public class stepdef {
 	//table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)
 	@And("select the first row of table")
 	public void select_the_first_row_of_table() {
+		driver.switchTo().defaultContent();
 		driver.findElement(By.cssSelector("table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)")).click();
 	}
 }
