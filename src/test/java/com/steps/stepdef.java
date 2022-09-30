@@ -97,7 +97,7 @@ public class stepdef {
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		WebElement element=(WebElement)jse.executeScript("return document.querySelector(\"#snacktime\").shadowRoot.querySelector(\"#tea\")");
 		
-		String js="return arguments[0].innerText";
+		String js="return arguments[0].value";
 		String val=(String)jse.executeScript(js, element);
 		System.out.println(val);
 		assertEquals("Kebab",val);
