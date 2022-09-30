@@ -80,7 +80,10 @@ public class stepdef {
 	}
 	@And("user switch to iframe")
 	public void user_switch_to_iframe() {
-		
+		WebElement frame=driver.findElement(By.id("pact"));
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		String js="arguments[0].scrollIntoView(true)";
+		jse.executeScript(js,frame);
 		driver.switchTo().frame("pact");
 	}
 
