@@ -6,7 +6,9 @@ import java.time.Duration;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.en.And;
@@ -83,10 +85,19 @@ public class stepdef {
 
 	@When("user add data into in input box")
 	public void user_add_data_into_in_input_box() {
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		WebElement element=(WebElement)jse.executeScript("return document.querySelector(\"#snacktime\").shadowRoot.querySelector(\"#tea\")");
 		
+		String js="argument[0].setAttribute('value','Kebab')";
+		jse.executeScript(js, element);
 	}
 	@Then("verify data is added")
 	public void verify_data_is_added() {
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		WebElement element=(WebElement)jse.executeScript("return document.querySelector(\"#snacktime\").shadowRoot.querySelector(\"#tea\")");
 		
+		String js="argument[0].getAttribute('value')";
+		String val=(String)jse.executeScript(js, element);
+		assertEquals("Kebab",val);
 	}
 }
