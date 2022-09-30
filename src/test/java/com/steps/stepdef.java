@@ -65,6 +65,28 @@ public class stepdef {
 
 	}
 
+	
+	/*
+	 *          Shadow Element into the Frame
+	 */
 
+	@Given("user navigate the url")
+	public void user_navigate_the_url() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().window().maximize();
+		driver.get("https://selectorshub.com/xpath-practice-page/");
+	}
+	@And("user switch to iframe")
+	public void user_switch_to_iframe() {
+		driver.switchTo().frame("pact");
+	}
 
+	@When("user add data into in input box")
+	public void user_add_data_into_in_input_box() {
+		
+	}
+	@Then("verify data is added")
+	public void verify_data_is_added() {
+		
+	}
 }
