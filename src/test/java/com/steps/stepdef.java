@@ -80,6 +80,7 @@ public class stepdef {
 	}
 	@And("user switch to iframe")
 	public void user_switch_to_iframe() {
+		
 		driver.switchTo().frame("pact");
 	}
 
@@ -88,7 +89,7 @@ public class stepdef {
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		WebElement element=(WebElement)jse.executeScript("return document.querySelector(\"#snacktime\").shadowRoot.querySelector(\"#tea\")");
 		
-		String js="argument[0].setAttribute('value','Kebab')";
+		String js="arguments[0].setAttribute('value','Kebab')";
 		jse.executeScript(js, element);
 	}
 	@Then("verify data is added")
@@ -96,8 +97,9 @@ public class stepdef {
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		WebElement element=(WebElement)jse.executeScript("return document.querySelector(\"#snacktime\").shadowRoot.querySelector(\"#tea\")");
 		
-		String js="argument[0].getAttribute('value')";
+		String js="return arguments[0].innerText";
 		String val=(String)jse.executeScript(js, element);
+		System.out.println(val);
 		assertEquals("Kebab",val);
 	}
 }
