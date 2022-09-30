@@ -8,4 +8,5 @@ Feature: Find the shadow element inside the iframe
     And user switch to iframe
     When user add data into in input box
     Then verify data is added
+    And select the first row of table
     
