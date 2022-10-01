@@ -1,11 +1,16 @@
 package com.utilities;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -31,5 +36,13 @@ public class SeleniumCommonFunction {
 		.until(dr->dr.findElement(locator));
 
 	}
+	public static void waitForElementClikable(WebDriver driver,By locator) {
+		List listofException=new ArrayList();
+		
+		new WebDriverWait(driver,Duration.ofSeconds(20))
+		.ignoringAll(TimeoutException.class,NoSuchElementException.class,StaleElementReferenceException.class,ElementClickInterceptedException.class)
+		
+		
+		}
 
 }
