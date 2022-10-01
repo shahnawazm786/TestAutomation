@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.utilities.SeleniumCommonFunction;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -109,6 +111,8 @@ public class stepdef {
 	@And("select the first row of table")
 	public void select_the_first_row_of_table() {
 		driver.switchTo().defaultContent();
-		driver.findElement(By.cssSelector("table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)>input")).click();
+		
+		SeleniumCommonFunction.waitForElementClikable(driver, By.cssSelector("table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)>input")).click();;
+	//	driver.findElement(By.cssSelector("table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)>input")).click();
 	}
 }
