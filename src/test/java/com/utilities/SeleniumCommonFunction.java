@@ -57,6 +57,7 @@ public class SeleniumCommonFunction {
 	}
 	public static void waitForElementClickable(WebDriver driver,By locator) throws Throwable{
 		wait=new WebDriverWait(driver, Duration.ofSeconds(20));
+		wait.withTimeout(Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 	
