@@ -12,6 +12,8 @@ import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumCommonFunction {
@@ -36,13 +38,16 @@ public class SeleniumCommonFunction {
 		.until(dr->dr.findElement(locator));
 
 	}
-	public static void waitForElementClikable(WebDriver driver,By locator) {
-		List listofException=new ArrayList();
-		
-		new WebDriverWait(driver,Duration.ofSeconds(20))
-		.ignoringAll(TimeoutException.class,NoSuchElementException.class,StaleElementReferenceException.class,ElementClickInterceptedException.class)
-		
-		
+	public static WebElement waitForElementClikable(WebDriver driver,By locator) {
+		List listofException=new ArrayList<>();
+		listofException.add(NoSuchElementException.class);
+		listofException.add(StaleElementReferenceException.class);
+		listofException.add(ElementClickInterceptedException.class);
+		listofException.add(TimeoutException.class);
+		WebElement ele=(WebElement)new WebDriverWait(driver,Duration.ofSeconds(20))
+		.ignoreAll(listofException)
+		.until(ExpectedConditions.elementToBeClickable(locator));
+		return ele;
 		}
 
 }
