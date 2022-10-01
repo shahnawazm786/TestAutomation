@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumCommonFunction {
 
+	static WebDriverWait wait;
 	public static void clickElement(WebDriver driver,By locator) {
 		new WebDriverWait(driver,Duration.ofSeconds(20))
 		.ignoring(NoSuchElementException.class)
@@ -49,5 +50,10 @@ public class SeleniumCommonFunction {
 		.until(ExpectedConditions.elementToBeClickable(locator));
 		return ele;
 		}
+	
+	public static WebElement waitForElementClickable(WebDriver driver,WebElement element) throws Throwable {
+		wait=new WebDriverWait(driver, Duration.ofSeconds(20));
+		return wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
 
 }
