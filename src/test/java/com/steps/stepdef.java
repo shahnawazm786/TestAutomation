@@ -109,10 +109,12 @@ public class stepdef {
 	}
 	//table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)
 	@And("select the first row of table")
-	public void select_the_first_row_of_table() {
+	public void select_the_first_row_of_table() throws Throwable{
 		driver.switchTo().defaultContent();
-		SeleniumCommonFunction.waitForElementClikable(driver, By.cssSelector("table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)>input")).click();;
+		WebElement element=driver.findElement(By.cssSelector("table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)>input"));
+		//SeleniumCommonFunction.waitForElementClikable(driver, By.cssSelector("table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)>input")).click();;
 	//	driver.findElement(By.cssSelector("table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)>input")).click();
+		SeleniumCommonFunction.waitForElementClickable(driver, element).click();
 	}
 	
 }
