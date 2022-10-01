@@ -114,7 +114,8 @@ public class stepdef {
 		//WebElement element=driver.findElement(By.cssSelector("table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)>input"));
 		//SeleniumCommonFunction.waitForElementClikable(driver, By.cssSelector("table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)>input")).click();;
 	//	driver.findElement(By.cssSelector("table[id='resultTable']>tbody>tr:nth-child(1)>td:nth-child(1)>input")).click();
-		
+		SeleniumCommonFunction.waitForElementClickable(driver,By.cssSelector("input[id='ohrmList_chkSelectRecord_25']"));
+		SeleniumCommonFunction.click(driver, By.cssSelector("input[id='ohrmList_chkSelectRecord_25']"));
 	}
 	
 }
